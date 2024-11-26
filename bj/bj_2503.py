@@ -13,17 +13,14 @@ for a in range(1, 10):
                 continue
 
             count = 0
-            for i in test:
+            for i in range(len(test)):
                 num = test[i][0]
                 strike = test[i][1]
                 ball = test[i][2]
-                print(num)
-                print(strike)
-                print(ball)
 
-                num1 = num//100
-                num2 = num//10
-                num3 = num//1
+                num1 = num // 100
+                num2 = num % 100 // 10
+                num3 = num % 10
 
                 s_count = 0
                 b_count = 0
@@ -46,11 +43,6 @@ for a in range(1, 10):
                 answer += 1
 
 print(answer)
-
-                # c가 number의 1의 자리수와 일치하면 strike+1
-                # b가 number의 10의 자리수와 일치하면 strike+1
-                # a가 number의 100의 자리수와 일치하면 strike+1
-                # c가 number의 10의 자리수와 일치하면 ball+1 . . .
 
 # def calcul(target, answer):
 #     st = 0
