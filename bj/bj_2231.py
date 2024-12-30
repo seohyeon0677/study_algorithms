@@ -1,11 +1,11 @@
+def sol(N):
+    start = max(1, N - 9 * len(str(N)))
+    for n in range(start, N):
+        n_sum = n + sum(map(int, str(n)))
+        if n_sum == N:
+            return n
+    return 0
+
 N = int(input())
 
-for n in range(1, N):
-    n_str = str(n)
-    n_list = [int(n_str[i]) for i in range(len(n_str))]
-    n_sum = sum(n_list)
-
-    if n + n_sum == N:
-        break
-
-print(n)
+print(sol(N))
