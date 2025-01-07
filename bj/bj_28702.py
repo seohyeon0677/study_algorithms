@@ -1,20 +1,29 @@
-def next_output(inputs):
-    def fizzbuzz_string(n):
-        if n % 3 == 0 and n % 5 == 0:
-            return "FizzBuzz"
-        elif n % 3 == 0:
-            return "Fizz"
-        elif n % 5 == 0:
-            return "Buzz"
+def fizzbuzz_next(strings):
+    sequence = []
+    for s in strings:
+        if s.isdigit():
+            sequence.append(int(s))
         else:
-            return str(n)
+            sequence.append(s)
+
+    last_num = None
+    from_end = None
+    for i, item in enumerate(reversed(sequence)):
+        if isinstance(item, int):
+            last_num = item
+            from_end = i + 1
+            break
     
-    a, b, c = inputs[0], inputs[1], inputs[2]
+    next_num = last_num + from_end
+    if next_num % 3 == 0 and next_num % 5 == 0:
+        return "FizzBuzz"
+    elif next_num % 3 == 0:
+        return "Fizz"
+    elif next_num % 5 == 0:
+        return "Buzz"
+    else:
+        return str(next_num)
+    
+input_strings = [input().strip() for _ in range(3)]
 
-    for i in range(1, 101):
-        if fizzbuzz_string(i) == a and fizzbuzz_string(i + 1) == b and fizzbuzz_string(i + 2) == c:
-            return fizzbuzz_string(i + 3)
-
-inputs = [input().strip() for _ in range(3)]
-
-print(next_output(inputs))
+print(fizzbuzz_next(input_strings))
