@@ -1,12 +1,6 @@
-A, B, V = map(int, input().split())
+up, down, V = map(int, input().split())
 
-H = 0
-days = 0
-while True:
-    days += 1
-    H += A
-    if H >= V:
-        break
-    H -= B
+v = V - up
+d = v // (up - down) if v % (up - down) == 0 else v // (up - down) + 1
 
-print(days)
+print(d + 1)
