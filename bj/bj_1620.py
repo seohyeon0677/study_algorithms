@@ -1,11 +1,15 @@
 N, M = map(int, input().split())
-have = [input().strip() for _ in range(N)]
 
-def find_monster(monster):
-    if monster.isdigit():
-        return have[int(monster) - 1]
-    else:
-        return have.index(monster) + 1
-    
+mon2num = {}
+num2mon = {}
+for i in range(1, N + 1):
+    monster = input().strip()
+    mon2num[monster] = i
+    num2mon[i] = monster
+ 
 for _ in range(M):
-    print(find_monster(input().strip()))
+    query = input().strip()
+    if query.isdigit():
+        print(num2mon[int(query)])
+    else:
+        print(mon2num[query])
