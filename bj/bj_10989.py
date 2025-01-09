@@ -1,9 +1,13 @@
 import sys
+def input():
+    return sys.stdin.readline()
 
 N = int(input())
-nums = [int(input()) for _ in range(N)]
+nums = [0] * 10001
+for _ in range(N):
+    n = int(input())
+    nums[n] += 1
 
-nums.sort()
-
-# 한 번에 출력
-sys.stdout.write("\n".join(map(str, nums)) + "\n")
+for i in range(1, 10001):
+    for _ in range(nums[i]):
+        print(i)
