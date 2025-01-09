@@ -1,3 +1,7 @@
+import sys
+def input():
+    return sys.stdin.readline()
+
 N = int(input())
 nums = [int(input()) for _ in range(N)]
 
