@@ -1,11 +1,11 @@
 N, K = map(int, input().split())
-A = [int(input()) for _ in range(N)]
+coins = [int(input()) for _ in range(N)]
 
 count = 0
-won = 0
-for a in reversed(A):
-    while won + a <= K:
-        won += a
-        count += 1
+for coin in reversed(coins):
+    if K == 0:
+        break
+    count += K // coin
+    K %= coin
 
 print(count)
